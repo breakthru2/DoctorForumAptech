@@ -1,0 +1,32 @@
+﻿@model SimpleChat.chatModel.ViewReplies
+@{
+    ViewBag.Title = "ReplySave";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Replies</h2>
+
+<ul>
+    @foreach (var ques in Model.Questions)
+    {
+        <div class="jumbotron"><h3>@ques.QuestionText?</h3></div>
+    }
+</ul>
+
+<ul>
+    @foreach (var reply in Model.Reply)
+    {
+        <li class="btn btn-default" style="margin-top: 10px; text-align: right;">
+            <span class="text-danger">@reply.User.FullName</span> <br />
+            @reply.RepliesText <br />
+            <span style="color: lightslategray">@reply.ReplyDate</span>
+        </li>
+        <br />
+    }
+</ul>
+
+<div style="margin-left: 700px;">
+    <h3>@Html.ActionLink("Return to Questions", "AllQuestions", "Questions")</h3>
+</div>
+
+

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<SimpleChat.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Doctors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="hero-wrap" style="background-image: url('../../assets/images/bgbg (2).jpg'); background-attachment:fixed;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-8 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Doctor</span></p>
+                    <h1 class="mb-3 bread">Well Experienced Doctors</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                @foreach (var user in Model)
+                {
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="block-2">
+                            <div class="flipper">
+                                <div class="front" style="        background-image: url(../../assets/images/doc.png);
+">
+                                    <div class="box">
+                                        <h2>@user.FullName</h2>
+                                        <p>@user.Profession</p>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <h6 class="p-2 text-info font-weight-bold">EXPERIENCE</h6>
+                                    <!-- back content -->
+                                    <blockquote>
+                                        <p>&ldquo;@user.Experience&rdquo;</p>
+                                    </blockquote>
+                                    <div class="author d-flex">
+                                        <div class="image mr-3 align-self-center">
+                                            <div class="img" style="background-image: url(../../assets/images/doc.png);"></div>
+                                        </div>
+                                        <div class="name align-self-center">@user.FullName <span class="position">@user.Profession</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- .flip-container -->
+                    </div>
+                }
+
+            </div>
+            @*<div class="row mt-5">
+                <div class="col text-center">
+                    <div class="block-27">
+                        <ul>
+                            <li><a href="#">&lt;</a></li>
+                            <li class="active"><span>1</span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&gt;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </section>
+
+    <section class="ftco-section-parallax">
+        <div class="parallax-img d-flex align-items-center">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                        <h2>Subcribe to our Newsletter</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+                        <div class="row d-flex justify-content-center mt-5">
+                            <div class="col-md-8">
+                                <form action="#" class="subscribe-form">
+                                    <div class="form-group d-flex">
+                                        <input type="text" class="form-control" placeholder="Enter email address">
+                                        <input type="submit" value="Subscribe" class="submit px-3">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+

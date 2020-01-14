@@ -1,0 +1,44 @@
+﻿@model SimpleChat.chatModel.ViewReplies
+@{
+    ViewBag.Title = "ReplySave";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container mt-5">
+
+        <ul>
+            <h5 class="font-weight-bold text-info">ALL REPLIES</h5> <hr />
+
+            @foreach (var ques in Model.Questions)
+            {
+                <div class="jumbotron">
+                    <h3>@ques.QuestionText?</h3>
+                </div>
+            }
+        </ul>
+
+
+
+
+        <ul>
+            @if (!Model.Reply.Any())
+            {
+                <li class="btn btn-info btn-block btn-lg">No replies yet! <br /> Be the first</li>
+            }
+            @foreach (var reply in Model.Reply)
+            {
+                <li class="btn btn-default rounded mt-2 btn-outline-primary">
+                    <span class="float-right bg-info p-1 rounded text-light">@reply.User.FullName</span> <br /> <hr />
+                    @reply.RepliesText <br />
+                    <span style="font-size: 11px;" class="text-info float-right">@reply.ReplyDate</span>
+                </li>
+                <br />
+            }
+        </ul>
+
+        <br />
+        @Html.ActionLink("Return to Questions", "AllQuestions", "Questions", null, new { @class = "btn rounded btn-outline-info w-20" })
+    </div>
+
+
+
